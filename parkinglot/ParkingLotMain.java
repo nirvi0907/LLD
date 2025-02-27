@@ -1,26 +1,30 @@
 package LLD.parkinglot;
 
-import java.util.ArrayList;
-import java.util.List;
+import LLD.parkinglot.vehicles.*;
 
-import LLD.parkinglot.vehicles.IVehicle;
+import java.util.*;
+
+
+//map-spot:boolean
 
 public class ParkingLotMain{
     public static void main(String[] args) {
-        Level level1 = new Level(1);
-        Level level2 = new Level(2);
-        Level level3 = new Level(3);
-        List<Level> levels = new ArrayList<>();
-        levels.add(level1);
-        levels.add(level2);
-        levels.add(level3);
-        ParkingLot parkingLot  = new ParkingLot();
-        for(Level level:levels)
-            parkingLot.addLevel(level);
-        IVehicle car = new Car("IW23");
-        IVehicle truck = new Truck("IW23");
-        parkingLot.parkVehicle(car);
-        parkingLot.parkVehicle(truck);
-        
+        Map<Integer, Integer> levelSpotNumMap = new HashMap<>();
+        levelSpotNumMap.put(1, 2);
+        levelSpotNumMap.put(2, 0);
+        levelSpotNumMap.put(3, 0);
+        ParkingLot parkingLot = ParkingFactory.createParkingLot(levelSpotNumMap);
+
+        List<IVehicle> vehicles = VehicleFactory.createVehicles(new ArrayList<>
+                (Arrays.asList(VehicleType.TRUCK, VehicleType.CAR)));
+        for(IVehicle vehicle:vehicles) {
+            parkingLot.parkVehicle(vehicle);
+            parkingLot.unParkVehicle(vehicle);
+        }
+
+//        IVehicle truck2 = new Truck("truck2", VehicleType.TRUCK);
+//        parkingLot.parkVehicle(truck2);
+//        parkingLot.unParkVehicle(truck);
+        //factory pattern
     }
 }

@@ -1,10 +1,11 @@
 package LLD.parkinglot.vehicles;
+import LLD.parkinglot.vehicles.IVehicle;
 
-public class Car implements IVehicle {
+public class Truck implements IVehicle{
     private String num;
     private VehicleType vehicleType;
 
-    public Car(String num, VehicleType vehicleType){
+    public Truck(String num, VehicleType vehicleType){
         this.num = num;
         this.vehicleType = vehicleType;
     }

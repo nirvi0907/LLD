@@ -1,33 +1,30 @@
 package LLD.parkinglot;
 
-import java.util.List;
-
+import LLD.parkinglot.ParkingStrategy.ParkingStrategy;
+import LLD.parkinglot.level.ILevel;
 import LLD.parkinglot.vehicles.IVehicle;
 
-public class ParkingLot {
-    List<Level> levels = null;
+import java.util.List;
+import java.util.ArrayList;
+//to avoid DIP use strategy instead of direct impl of level ,and spot clases
 
-    public void addLevel(Level level){
+public class ParkingLot {
+    private List<ILevel> levels = new ArrayList<>();
+    private ParkingStrategy parkingStrategy;
+    public ParkingLot(ParkingStrategy parkingStrategy){
+        this.parkingStrategy = parkingStrategy;
+    }
+    public boolean parkVehicle(IVehicle vehicle){
+        return parkingStrategy.parkVehicle(levels, vehicle);
+    }
+    public void unParkVehicle(IVehicle vehicle){
+        parkingStrategy.unParkVehicle(levels, vehicle);
+    }
+    public void addLevel(ILevel level){
+        System.out.println("Adding level "+ Integer.toString(level.getlevelNum()));
         levels.add(level);
     }
-    public void getLevels(){
+    public List<ILevel> getLevels(){
         return levels;
-    }
-    public boolean assign_spot_to_vehicle(IVehicle vehicle){
-        for(Level level : levels){
-            if(level.parkVehicle(vehicle))
-                return true;
-        
-        }
-        return false;
-    }
-    public boolean exit_vehicle(Vehicle vehicle){
-        for(Level level : levels){
-            if(level.unparkVehicle(vehicle))
-                return true;
-
-        }
-        return false;
-
     }
 }
