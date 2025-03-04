@@ -9,18 +9,8 @@ Requirements
     The system should handle multiple entry and exit points and support concurrent access.
 
 
-Parking Lot-> Levels-> Spots ->vehicles, points
+patterns
 
-Vehicle ->type(car, motor, truck), spot num
-
-system->assign spot to vehicle, release, is_avaialble(slot), num_slots(level)
-
-Point (exit/entry)
-
-spots->list of vehicles
-
-
-1. assign parking spot
-    check next available slot, check in levels which spot is available
-
-singleton
+Factory
+Observer
+Strategy
