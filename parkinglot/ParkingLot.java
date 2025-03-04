@@ -7,12 +7,18 @@ import LLD.parkinglot.vehicles.IVehicle;
 import java.util.List;
 import java.util.ArrayList;
 //to avoid DIP use strategy instead of direct impl of level ,and spot clases
+import LLD.parkinglot.realtime.*;
 
 public class ParkingLot {
     private List<ILevel> levels = new ArrayList<>();
+    private IParkingLotRealTimeInfoMgr parkingLotRealTimeInfoMgr;
     private ParkingStrategy parkingStrategy;
-    public ParkingLot(ParkingStrategy parkingStrategy){
+    public ParkingLot(ParkingStrategy parkingStrategy, IParkingLotRealTimeInfoMgr parkingLotRealTimeInfoMgr){
         this.parkingStrategy = parkingStrategy;
+        this.parkingLotRealTimeInfoMgr = parkingLotRealTimeInfoMgr;
+    }
+    public IParkingLotRealTimeInfoMgr getParkingLotRealTimeMgr(){
+        return parkingLotRealTimeInfoMgr;
     }
     public boolean parkVehicle(IVehicle vehicle){
         return parkingStrategy.parkVehicle(levels, vehicle);

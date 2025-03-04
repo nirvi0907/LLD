@@ -1,5 +1,4 @@
 package LLD.parkinglot.vehicles;
-import LLD.parkinglot.vehicles.IVehicle;
 
 public class Truck implements IVehicle{
     private String num;

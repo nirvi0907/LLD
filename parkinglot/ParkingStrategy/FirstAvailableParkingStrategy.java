@@ -6,6 +6,7 @@ import LLD.parkinglot.vehicles.IVehicle;
 
 import java.util.ArrayList;
 import java.util.List;
+import LLD.parkinglot.ParkingStrategy.ParkingStrategy;
 
 public class FirstAvailableParkingStrategy implements ParkingStrategy {
 

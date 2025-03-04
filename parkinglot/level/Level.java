@@ -6,8 +6,9 @@ import LLD.parkinglot.spot.ISpot;
 import LLD.parkinglot.spot.Spot;
 import LLD.parkinglot.vehicles.IVehicle;
 import LLD.parkinglot.vehicles.VehicleType;
+import LLD.parkinglot.level.ILevel;
 
-public class Level implements ILevel{
+public class Level implements ILevel {
     private List<ISpot> spots = new ArrayList<>();
     private int levelNum;
     private int totalSpotCap;
