@@ -1,6 +1,7 @@
 package LLD.parkinglot;
 import LLD.parkinglot.vehicles.*;
-import LLD.parkinglot.customer.*;
+import LLD.parkinglot.customer.INotifiable;
+import LLD.parkinglot.customer.VIPCustomer;
 import java.util.*;
 //map-spot:boolean
 
@@ -15,14 +16,16 @@ public class ParkingLotMain{
         List<IVehicle> vehicles = VehicleFactory.createVehicles(new ArrayList<>
                 (Arrays.asList(VehicleType.TRUCK, VehicleType.CAR)));
 
-        LLD.parkinglot.customer.ICustoemr customer = new Customer("nirvi", "12", "@gmail.com");
+        INotifiable customer = new VIPCustomer("nirvi", "12", "@gmail.com");
         LLD.parkinglot.realtime.IParkingLotRealTimeInfoMgr parkinglotRealTimeMgr = parkinglot.getParkingLotRealTimeMgr();
 
         parkinglotRealTimeMgr.addObserver(customer);
         for(IVehicle vehicle:vehicles) {
             parkinglot.parkVehicle(vehicle);
             parkinglotRealTimeMgr.updateObserver("Parked vehicle");
-
+            //throws exception, no space, todo: if car already parked?
+            parkinglot.parkVehicle(vehicle);
+            parkinglotRealTimeMgr.updateObserver("Parked vehicle");
             parkinglot.unParkVehicle(vehicle);
             parkinglotRealTimeMgr.updateObserver("Unparked vehicle");
 

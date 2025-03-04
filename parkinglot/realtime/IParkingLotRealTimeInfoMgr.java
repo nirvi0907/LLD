@@ -3,9 +3,9 @@ package LLD.parkinglot.realtime;
 import LLD.parkinglot.customer.ICustoemr;
 
 public interface IParkingLotRealTimeInfoMgr {
-    public void addObserver(ICustoemr customer);
+    public void addObserver(LLD.parkinglot.customer.INotifiable customer);
 
-    public void removeObserver(ICustoemr custoemr);
+    public void removeObserver(LLD.parkinglot.customer.INotifiable custoemr);
 
     public void updateObserver(String message);
 }

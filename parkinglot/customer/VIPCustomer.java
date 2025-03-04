@@ -1,11 +1,12 @@
 package LLD.parkinglot.customer;
+import LLD.parkinglot.customer.*;
 
-public class Customer implements ICustoemr {
+public class VIPCustomer implements ICustoemr, INotifiable {
     private String name;
     private String phoneNum;
     private String email;
 
-    public Customer(String name, String phoneNum, String email){
+    public VIPCustomer(String name, String phoneNum, String email){
         this.name = name;
         this.phoneNum = phoneNum;
         this.email = email;
@@ -19,5 +20,9 @@ public class Customer implements ICustoemr {
     public String getEmail(){
         return email;
     }
+    public void update(String message){
+        System.out.println(" mesage recived to customer, :"+getName()+" : "+message);
+    }
+
 
 }
