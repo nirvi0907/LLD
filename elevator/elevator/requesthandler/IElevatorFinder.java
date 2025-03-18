@@ -6,5 +6,5 @@ import elevator.elevator.Elevator;
 import elevator.floor.Floor;
 
 public interface IElevatorFinder {
-    public void requestElevator(Building building, Floor srcFloor);
+    public Elevator requestElevator(Building building, Floor srcFloor);
 }

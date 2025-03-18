@@ -9,7 +9,7 @@ import java.util.List;
 
 public class NearestElevatorImpl implements IElevatorFinder{
 
-    public void requestElevator(Building building, Floor srcFloor){
+    public Elevator requestElevator(Building building, Floor srcFloor){
         int minFloorDiff = Integer.MAX_VALUE;
         Elevator nearestElevator = null;
         for(Elevator elevator:building.getElevators()){
@@ -22,10 +22,10 @@ public class NearestElevatorImpl implements IElevatorFinder{
             System.out.println(" Elevator arrived "+ nearestElevator.getNum());
         else
             System.out.println(" Elevator not arrived,s till waiting ");
-        IElevatorRequestHandler handler = nearestElevator.getRequestHandler();
-        handler.addRequest(srcFloor);
+        return nearestElevator;
 //        return nearestElevator;
     }
 
 }
 
+// button-> elevator arrives-> press floor

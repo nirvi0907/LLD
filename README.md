@@ -51,4 +51,47 @@ neatrest first, source floor, elevators
 
 
 
+Library management
+The library management system should allow librarians to manage books, members, and borrowing activities.
+The system should support adding, updating, and removing books from the library catalog.
+Each book should have details such as title, author, ISBN, publication year, and availability status.
+The system should allow members to borrow and return books.
+Each member should have details such as name, member ID, contact information, and borrowing history.
+The system should enforce borrowing rules, such as a maximum number of books that can be borrowed at a time and loan duration.
+The system should handle concurrent access to the library catalog and member records.
+The system should be extensible to accommodate future enhancements and new features.
 
+actors
+library, system, book, member, catalog
+
+
+IBook- book- createdDate, price, name, bookStatus, author
+BookStatus - reserved, available, not_available_in_library
+ILibrarian - uses BorrowingHandler, methods - intiiateborrowBook,  retrunBook(member, book)
+IAccount - name, id, phone
+Librarian uses IAccount, ILibrarian  
+
+
+BorrowingHandler- uses IBorrower,IBorringRules book, methods - intiiateborrowBook(member, book), retrunBook(member, book)
+Subject- notify()
+IBorrowerNotifier- uses List<IBorrower>,method s-  addBorrower(IBorrower), remove, subject.notify(message)
+IBorrowerOverDue- uses List<IBorrower>, mehtods - subject.notify(message)
+system-> IBorrowerOverDue //keep running
+IBorrower-  BorrowingRecord, List<book, start,end> pastBorrowedBooks, List<book, starttime> currentBorrowedBooks, lastBorrowedDate, 
+maxBooks
+
+Borrower - implemnts Iaccount  & IBorrowingHistory & 
+BorrowingStatus- borrowed, not_borrowed, overdue
+ILibrarian-   librarianMgr - add(book), updateBook(book, sttaus, ca), remove(book)
+IAccount 
+
+1. members, librarianc ceates
+2. borrow book
+   3. if available book and maxbooks 
+   4. member update - create time when borowed, maxBooks+1, add as notifier
+   5. book status reserved
+6. kee runnign to check if rule broke, overdue books etc
+7. Retrun book
+   8. check if overdue, get money
+   9. reduce currentbook, put in pastbook, update history, amxBook-1=
+   10. bookstatus free

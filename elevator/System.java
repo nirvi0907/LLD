@@ -2,6 +2,7 @@ package elevator;
 
 import elevator.building.Building;
 import elevator.button.Button;
+import elevator.button.ButtonPressHandler;
 import elevator.direction.Direction;
 import elevator.elevator.Elevator;
 import elevator.elevator.requesthandler.NearestElevatorImpl;
@@ -17,8 +18,8 @@ public class System {
         buildingObj.addFloor(floorObj);
 
         Button button = new Button(Direction.UP);
-
-        user.requestElevator(buildingObj, floorObj, button.getDirection());
+        ButtonPressHandler buttonHandler = new ButtonPressHandler(new NearestElevatorImpl());
+        buttonHandler.pressButton(buildingObj, floorObj);
 
     }
     public Building createBuilding(Config config){

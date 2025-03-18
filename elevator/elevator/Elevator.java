@@ -14,17 +14,19 @@ public class Elevator {
     private int currentFloor = 0;
     private int num;
     private Door door;
-    private IElevatorRequestHandler handler;
+    private int totalCap;
+    public int getTotalCap(){
+        return totalCap;
+    }
+//    private IElevatorRequestHandler handler;
 
-    public Elevator(int num, IElevatorRequestHandler handler){
+    public Elevator(int num, int totalCap){
         this.num = num;
         this.direction = Direction.STILL;
         this.door = new Door();
-        this.handler = handler;
+        this.totalCap = totalCap;
     }
-    public IElevatorRequestHandler getRequestHandler(){
-        return handler;
-    }
+
     public void setCurrentFloor(int floor){
         this.currentFloor = floor;
     }
@@ -38,9 +40,6 @@ public class Elevator {
     public Door getDoor()
     {
         return door;
-    }
-    public Request run(){
-        return handler.getNextRequest();
     }
 
 

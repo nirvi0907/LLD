@@ -9,4 +9,5 @@ import elevator.request.Request;
 public interface IElevatorRequestHandler {
     public void addRequest(Floor srcFloor);
     public Request getNextRequest();
+    public void run();
 }
