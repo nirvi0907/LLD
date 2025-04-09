@@ -35,7 +35,7 @@ public class Borrower implements IBorrower, IAccount, INotifiable {
     }
 
 
-    public String getName(){
+    public String get_Name(){
         return name;
     }
     public String getPhone(){
@@ -44,7 +44,7 @@ public class Borrower implements IBorrower, IAccount, INotifiable {
     public String getEmail(){
         return email;
     }
-    public int getId(){
+    public int get_Id(){
         return id;
     }
 

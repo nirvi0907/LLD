@@ -13,6 +13,7 @@ public class ParkingLot {
     private List<ILevel> levels = new ArrayList<>();
     private IParkingLotRealTimeInfoMgr parkingLotRealTimeInfoMgr;
     private ParkingStrategy parkingStrategy;
+
     public ParkingLot(ParkingStrategy parkingStrategy, IParkingLotRealTimeInfoMgr parkingLotRealTimeInfoMgr){
         this.parkingStrategy = parkingStrategy;
         this.parkingLotRealTimeInfoMgr = parkingLotRealTimeInfoMgr;

@@ -9,5 +9,5 @@ import java.util.List;
 public interface IBorrowingNotifier {
     public void addBorrower(IBorrower borrower);
     public void removeBorrower(IBorrower borrower);
-    public void notifyBorrower(IBorrower borrower);
+    public void notifyBorrowers(String mesage);
 }

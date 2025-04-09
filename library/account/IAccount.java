@@ -1,8 +1,8 @@
 package library.account;
 
 public interface IAccount {
-    public String getName();
+    public String get_Name();
     public String getPhone();
     public String getEmail();
-    public int getId();
+    public int get_Id();
 }

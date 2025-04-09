@@ -40,7 +40,7 @@ public class ElevatorRequestHandler implements IElevatorRequestHandler, Runnable
                     e.printStackTrace();
                 }
             }
-            return requests.remove(0);  // Return and remove the first request
+            return requests.remove(0);        // Return and remove the first request
         }
     }
 
